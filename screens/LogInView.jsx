@@ -2,10 +2,10 @@ import { StyleSheet, View, Image, TextInput, Button } from "react-native";
 const LoginScreen = () => {
     return (
       <View style={styles.container}>
-        {/* <Image 
-          source={{ uri: './assets/NakamaFestLogo.jpeg' }} // Reemplaza 'URL_DE_TU_IMAGEN' con la URL de tu imagen
+        <Image 
+          source={require('../assets/NakamaFestLogo.jpeg')} // Reemplaza 'URL_DE_TU_IMAGEN' con la URL de tu imagen
           style={styles.image}
-        /> */}
+        /> 
         <TextInput 
           placeholder="Username" 
           style={styles.input}
@@ -17,7 +17,7 @@ const LoginScreen = () => {
         />
         <Button
         title="Login"
-        onPress={handlelogin}
+        //onPress={handlelogin}
         />
       </View>
     );
@@ -30,11 +30,11 @@ const LoginScreen = () => {
       alignItems: 'center', // Centra los elementos en el eje X (horizontal)
       padding: 20,
     },
-    // image: {
-    //   width: 200, // Establece el ancho de la imagen
-    //   height: 200, // Establece la altura de la imagen
-    //   marginBottom: 20, // Espacio debajo de la imagen
-    // },
+    image: {
+       width: 200, // Establece el ancho de la imagen
+       height: 200, // Establece la altura de la imagen
+       marginBottom: 20, // Espacio debajo de la imagen
+     },
     input: {
       width: '100%', // El TextInput ocupa el ancho completo del contenedor
       height: 40, // Altura del TextInput
