@@ -1,4 +1,5 @@
 import { StyleSheet, View, Image, TextInput, Button } from "react-native";
+
 const LoginScreen = () => {
     return (
       <View style={styles.container}>
