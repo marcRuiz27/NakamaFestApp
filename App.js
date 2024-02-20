@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
-import LoginScreen from './screens/LogInView';
+import LogInS from './screens/LogInForm';
 
 // export default function App() {
 //   return (
@@ -22,9 +22,8 @@ import LoginScreen from './screens/LogInView';
 
 
 const App = () => {
-return (
-  <LoginScreen />
-);
+  return (
+    <LogInS />
+  );
 };
-
 export default App;
