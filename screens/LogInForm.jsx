@@ -1,24 +1,19 @@
 import React from "react";
 import {StyleSheet, View, TextInput, Image, Button, Text} from 'react-native';
 import {useForm, Controller} from 'react-hook-form';
-import LoginValidationSchena from '../src/validateLogin.js';
-import { yupResolver } from '@hookform/resolvers/yup';//this package bridges react hook form with the yup package
- 
+
 const LogInS = () => {
     const { control, handleSubmit, formState: {errors}} = useForm({
         defaultValues: {
             user: '',
             pass: '',
         },
-        resolver: yupResolver(LoginValidationSchena)
       });
 
     const OnSubmit = data => {
         //Submit the data to the server
         console.log(data);
         //Include your fetch or axios call here
-
-        //<Button title="Submit" onPress={handleSubmit(onSubmit)} />
     };
 
 
@@ -30,9 +25,11 @@ const LogInS = () => {
           /> 
           <Controller
             control={control}
+            name="user"
             rules={{
-              required: true,
+              required: "Es obligatorio el nombre",
             }}
+           
             render={({ field: { onChange, onBlur, value } }) => (
               <TextInput
                 style={styles.input}
@@ -42,12 +39,13 @@ const LogInS = () => {
                 placeholder="User"
               />
             )}
-            name="user"
+            
           />
           {errors.user && <Text style={styles.errorText}>User is required.</Text>}
     
           <Controller
             control={control}
+            name="pass"
             rules={{
               required: true,
               //pattern: /^[^@ ]+@[^@ ]+\.[^@ .]{2,}$/
@@ -62,10 +60,10 @@ const LogInS = () => {
                 //keyboardType="email-address"
               />
             )}
-            name="pass"
+            
           />
           {errors.pass && <Text style={styles.errorText}>Please enter a password.</Text>}
-          <Button title="Submit" />
+          <Button title="Submit" onPress={handleSubmit(OnSubmit)}/>
           
         </View>
       );
@@ -94,6 +92,7 @@ const LogInS = () => {
         borderRadius: 5
       },
       errorText: {
+        padding: 20, // Centra los elementos en el eje Y (vertical) 
         color: 'red',
       },
     });
